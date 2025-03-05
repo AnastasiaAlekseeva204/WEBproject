@@ -1,0 +1,24 @@
+table book
+id 
+title
+id_author
+image
+price
+content
+data_pub
+enabled
+reiting
+
+
+table category
+id
+title
+content
+enabled
+
+table book_category
+id
+id_book
+if_category
+
+table id_author
