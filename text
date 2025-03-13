@@ -4,6 +4,13 @@ python mahage.py runserver
 Создать пользователя 
 python manage.py createsuperuser
 
+Для тех, кто хочет зайти в аккаунт, используете: python manage.py createsuperuser
+И пишите данные пользователя : 
+Nastya
+1360nastya@mail.ru
+12345
+-----
+
 Данные пользователя:
 Nastya
 1360nastya@mail.ru
@@ -32,3 +39,4 @@ git add "имя файла"- если один файл
 3. git commit -m "текстовое сообщение"- если был add
 git commit -am "текстовое сообщение"- не было add
 4. git push - загружает в репозиторий 
+
