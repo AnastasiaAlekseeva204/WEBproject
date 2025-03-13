@@ -12,10 +12,11 @@ def main(request):
 
 def book(request):
     book_id = request.GET.get('book_id')
+    book = Book.objects.get(id=book_id)
     #category = Category.objects.get(id=cat_id)
     #books = Book.objects.filter(category=cat_id).all()
     #return render(request,'blog/book.html',{'books':books,'category':category})
-    return render(request,'blog/book.html',{})
+    return render(request,'blog/book.html',{'book':book})
 
 def author(request):
     author_id = request.GET.get('author_id')
@@ -28,3 +29,6 @@ def category(request):
     category = Category.objects.get(id=cat_id)
     books = Book.objects.filter(category=cat_id).all()
     return render(request,'blog/category.html',{'books':books,'category':category})
+
+'''def base(request):
+    return render(request,'blog/base.html')'''

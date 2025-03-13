@@ -1,0 +1,28 @@
+{% extends "blog/base.html" %}
+{% block title %}Моя библиотека{% endblock title %}
+{% block header %}Моя библиотека{% endblock header %}
+{% block content %}
+    <h2>Категории</h2>
+    <div>
+        {% for category in categorys %}
+        <p>
+            <a href="/category?cat_id={{category.id}}">
+                {{category.title}}
+            </a>
+            <p>
+                {{category.content}}
+            </p>
+        </p>
+        {% endfor %}
+    </div>
+    <h2>Авторы</h2>
+    <div>
+        {% for author in authors %}
+        <p>
+            <a href="/author?author_id={{author.id}}">
+                {{author.title}}
+            </a>
+        </p>
+        {% endfor %}
+    </div>
+{% endblock content %}

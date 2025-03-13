@@ -1,0 +1,16 @@
+{% extends "blog/base.html" %}
+{% block title %}Книга{% endblock title %}
+{% block header %}Книга{% endblock header %}
+{% block content %}
+    <div>
+        <h2>{{book.title}}</h2>
+        <p><b>Автор: </b>{{book.id_author.title}}</p>
+        <p><b>Дата выпуска: </b>{{book.data_pub}}</p>
+        <p><b>Стоймость книги: </b>{{book.price}}</p>
+        <p><b>Описание: </b>{{book.content}}</p>
+        <p><b>Рейтинг: </b>{{book.reiting}}</p>
+    </div>
+    <p>
+        <a href="/">Назад</a>
+    </p>
+{% endblock content %}

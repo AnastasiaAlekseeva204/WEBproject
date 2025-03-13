@@ -1,0 +1,21 @@
+{% extends "blog/base.html" %}
+{% block title %}Категория{% endblock title %}
+{% block header %}Категория: {{category.title}}{% endblock header %}
+{% block content %}
+    <div>
+        {% for book in books %}
+        <p>
+            <a href="/book?book_id={{book.id}}">
+                {{book.title}}
+            </a>
+        </p>
+        {% empty %}
+        <p>
+            К сожалению, в данном разделе книг еще нет.
+        </p>
+        {% endfor %}
+    </div>
+    <p>
+        <a href="/">Назад</a>
+    </p>
+{% endblock content %}
