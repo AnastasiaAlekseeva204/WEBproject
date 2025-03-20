@@ -30,5 +30,8 @@ def category(request):
     books = Book.objects.filter(category=cat_id).all()
     return render(request,'blog/category.html',{'books':books,'category':category})
 
+def allcategory(request):
+    categorys = Category.objects.all()
+    return render(request,'blog/allcategory.html',{'categorys':categorys})
 '''def base(request):
     return render(request,'blog/base.html')'''

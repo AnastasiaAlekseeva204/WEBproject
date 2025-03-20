@@ -3,7 +3,7 @@
 {% block header %}Моя библиотека{% endblock header %}
 {% block content %}
     <h2>Категории</h2>
-    <div>
+    <div class="category_list">
         {% for category in categorys %}
         <p>
             <a href="/category?cat_id={{category.id}}">
@@ -16,7 +16,7 @@
         {% endfor %}
     </div>
     <h2>Авторы</h2>
-    <div>
+    <div class="author_list">
         {% for author in authors %}
         <p>
             <a href="/author?author_id={{author.id}}">
