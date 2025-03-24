@@ -33,5 +33,9 @@ def category(request):
 def allcategory(request):
     categorys = Category.objects.all()
     return render(request,'blog/allcategory.html',{'categorys':categorys})
+
+def allauthor(request):
+    authors = Author.objects.all()
+    return  render(request,'blog/allauthor.html',{'authors':authors})
 '''def base(request):
     return render(request,'blog/base.html')'''

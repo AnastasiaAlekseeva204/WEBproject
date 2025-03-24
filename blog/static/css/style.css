@@ -27,7 +27,8 @@ a:hover{
     background-color: coral;
     padding-left: 25px;
     padding-top: 5px;
-    padding-bottom: 25px;
+    padding-bottom: 15px;
+    padding-right: 25px;
     border-radius: 6px;
 }
 .category_list a{
@@ -35,10 +36,12 @@ a:hover{
 }
 .author_list{
     background-color: #bbc563;
-    padding-left: 25px;
-    padding-top: 5px;
-    padding-bottom: 25px;
+    padding-left: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 20px;
     border-radius: 6px;
+    display: flex;
 }
 .my_container{
     width: 1140px;
@@ -71,10 +74,45 @@ h1{
     margin: 0px 10px;
 
 }
+.btn_green:first-child{
+    margin-left: 0px;
+}
+.btn_green:last-child{
+    margin-right: 0px;
+}
 .btn_green:hover{
     background-color: #d8e377;
 }
 .menu_list{
     text-align: center;
     margin-top: 20px;
+}
+.item_block .item{
+    background-color: white;
+    color: black;
+    display: inline;
+    margin: 5px 10px;
+    padding: 10px 12px;
+    width: 300px;
+    min-height: 150px;
+}
+.item_block .item:first-child{
+    margin-left:0px;
+}
+.item_block .item:last-child{
+    margin-right: 0px;
+}
+.item_block .item a{
+    color:black;
+}
+.item_block .item .item_text{
+    text-align: center;
+    font-size: 18px;
+    margin-top: 5px
+}
+.book_list{
+    display: flex;
+}
+.item_block .item .item_img{
+    text-align: center;
 }
