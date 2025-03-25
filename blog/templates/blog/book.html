@@ -1,16 +1,43 @@
 {% extends "blog/base.html" %}
+{% load static %}
 {% block title %}Книга{% endblock title %}
-{% block header %}Книга{% endblock header %}
+{% block header %}Книга:{{book.title}}{% endblock header %}
 {% block content %}
-    <div>
+    <div class="book_block">
         <h2>{{book.title}}</h2>
-        <p><b>Автор: </b>{{book.id_author.title}}</p>
-        <p><b>Дата выпуска: </b>{{book.data_pub}}</p>
-        <p><b>Стоймость книги: </b>{{book.price}}</p>
-        <p><b>Описание: </b>{{book.content}}</p>
-        <p><b>Рейтинг: </b>{{book.reiting}}</p>
+        <div class="book_img">
+            <img src="{% static 'img/empty_img.jpg' %}"  width="300px"">
+        </div>
+        <div class="book_text">
+            <p><b>Автор: </b>{{book.id_author.title}}</p>
+            <p><b>Дата выпуска: </b>{{book.data_pub}}</p>
+            <p><b>Стоймость книги: </b>{{book.price}}</p>
+            <p><b>Описание: </b>{{book.content}}</p>
+            <p><b>Рейтинг: </b>{{book.reiting}}</p>
+        </div>
+    </div>
+    <div class="simple_list">
+        <h2>Еще книги этого автора</h2>
+        <div class="book_list author_simple_block item_block">
+            {% for book in author_simple_book %}
+            <div class="item">
+                <div class="item_img">
+                    <img src="{% static 'img/empty_img.jpg' %}" height="100px">
+                </div>
+                <div class="item_text">
+                    <a href="/book?book_id={{book.id}}">
+                        {{book.title}}
+                    </a>
+                </div> 
+            </div>
+            {% empty %}
+            <p>
+                К сожалению, в данном разделе книг еще нет.
+            </p>
+            {% endfor %}
+        </div>
     </div>
     <p>
-        <a href="/">Назад</a>
+        <a class="btn_green" href="/">Назад</a>
     </p>
 {% endblock content %}

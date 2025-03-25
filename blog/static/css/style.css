@@ -93,7 +93,7 @@ h1{
     display: inline;
     margin: 5px 10px;
     padding: 10px 12px;
-    width: 300px;
+    width: 220px;
     min-height: 150px;
 }
 .item_block .item:first-child{
@@ -115,4 +115,28 @@ h1{
 }
 .item_block .item .item_img{
     text-align: center;
+}
+.book_block{
+    margin-bottom: 25px;
+    background: linear-gradient(to bottom, #aa4081, #6e2853);
+}
+.book_block h2{
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+.book_block .book_text{
+    padding: 10px 15px;
+}
+.book_block .book_img{
+    padding-bottom: 5px;
+}
+.category_list ul{
+    margin-left: 0px;
+    padding: 5px;
+}
+.simple_list{
+    background-color: coral;
+    padding: 5px 20px 15px 20px;
+    border-radius: 6px;
+    margin-bottom: 20px;
 }

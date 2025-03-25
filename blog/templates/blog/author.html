@@ -1,17 +1,23 @@
 {% extends "blog/base.html" %}
+{% load static %}
 {% block title %}Автор{% endblock title %}
 {% block header %}Автор: {{author.title}}{% endblock header %}
 {% block content %}
-    <div>
+    <div class="book_list item_block">
         {% for book in books %}
-        <p>
-            <a href="/book?book_id={{book.id}}">
-                {{book.title}}
-            </a>
-        </p>
+        <div class="item">
+            <div class="item_img">
+                <img src="{% static 'img/empty_img.jpg'%}" height="100px">
+            </div>
+            <div class="item_text">
+                <a href="/book?book_id={{book.id}}">
+                    {{book.title}}
+                </a>
+            </div>
+        </div>
         {% endfor %}
     </div>
     <p>
-        <a href="/">Назад</a>
+        <a class="btn_green"  href="/">Назад</a>
     </p>
 {% endblock content %}
