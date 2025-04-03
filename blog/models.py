@@ -40,6 +40,7 @@ class Post(models.Model):
 
 class Author(models.Model):
     title = models.CharField(max_length=200)
+    image = models.ImageField(upload_to="authors",null=True,blank=True)
 
     def __str__(self):
         return str(self.id)+". "+self.title
@@ -50,13 +51,12 @@ class Book(models.Model):
     title = models.CharField(max_length=100)
     #id_author = models.IntegerField()
     id_author = models.ForeignKey(Author,on_delete=models.CASCADE)
-    image = models.ImageField(null=True)
+    image = models.ImageField(upload_to='images',null=True,blank=True)
     price = models.IntegerField(null=True)
     content = models.TextField(null=True)
     data_pub = models.DateTimeField(default=timezone.now)
     enabled = models.BooleanField()
     reiting = models.PositiveSmallIntegerField(null=True)
-    
     def __str__(self):
         return str(self.id)+". "+self.title
 

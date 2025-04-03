@@ -2,20 +2,22 @@
 {% block title %}Все категории{% endblock title %}
 {% block header %}Все категории{% endblock header %}
 {% block content %}
-    <div>
-        {% for category in categorys %}
-        <p>
-            <a href="/category?cat_id={{category.id}}">
-                {{category.title}}
-            </a>
-        </p>
-        {% empty %}
+    <div class="category_list mar_t_b">
+        <ul>
+            {% for category in categorys %}
+            <li>
+                <a href="/category?cat_id={{category.id}}">
+                    {{category.title}}
+                </a>
+            </li>
+            {% empty %}
         <p>
             К сожалению, в данном разделе книг еще нет.
         </p>
         {% endfor %}
+        </ul>
     </div>
     <p>
-        <a href="/">Назад</a>
+        <a class="btn_green" href="/">Назад</a>
     </p>
 {% endblock content %}

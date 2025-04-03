@@ -8,5 +8,6 @@ urlpatterns = [
     path('category',views.category,name='category'),
     path('allcategory',views.allcategory,name='allcategory'),
     path('allauthor',views.allauthor,name='allauthor')
+    
     #path('base',views.base,name='base')
 ]

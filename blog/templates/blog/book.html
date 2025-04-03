@@ -6,7 +6,11 @@
     <div class="book_block">
         <h2>{{book.title}}</h2>
         <div class="book_img">
-            <img src="{% static 'img/empty_img.jpg' %}"  width="300px"">
+            {% if book.image %}
+                <img src="{% static book.image %}"  width="300px">
+            {% else %}
+                <img src="{% static 'img/empty_img.jpg' %}"  width="300px">
+            {% endif %}
         </div>
         <div class="book_text">
             <p><b>Автор: </b>{{book.id_author.title}}</p>
@@ -14,6 +18,7 @@
             <p><b>Стоймость книги: </b>{{book.price}}</p>
             <p><b>Описание: </b>{{book.content}}</p>
             <p><b>Рейтинг: </b>{{book.reiting}}</p>
+            <p><b>Категория: </b>{{book.category}}</p>
         </div>
     </div>
     <div class="simple_list">
@@ -22,7 +27,11 @@
             {% for book in author_simple_book %}
             <div class="item">
                 <div class="item_img">
-                    <img src="{% static 'img/empty_img.jpg' %}" height="100px">
+                    {% if book.image %}
+                        <img src="{% static book.image %}" height="200px">
+                    {% else %}
+                        <img src="{% static 'img/empty_img.jpg' %}" height="200px">
+                    {% endif %}
                 </div>
                 <div class="item_text">
                     <a href="/book?book_id={{book.id}}">
@@ -34,6 +43,27 @@
             <p>
                 К сожалению, в данном разделе книг еще нет.
             </p>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="simple_list">
+        <h2>Похожие книги</h2>
+        <div class="book_list category_simple_book item_block">
+            {%for book in category_simple_book%}
+            <div class="item">
+                <div class="item_img">
+                    {% if book.image %}
+                        <img src="{% static book.image %}" height="200px">
+                    {% else %}
+                        <img src="{% static 'img/empty_img.jpg' %}" height="200px">
+                    {% endif %}
+                </div>
+                <div class="item_text">
+                    <a href="/book?book_id={{book.id}}">
+                        {{book.title}}
+                    </a>
+                </div>
+            </div>
             {% endfor %}
         </div>
     </div>

@@ -6,7 +6,7 @@ from .models import Author
 
 def main(request):
     books= Book.objects.all()
-    authors = Author.objects.all()
+    authors = Author.objects.all().order_by("?")[:4]
     categorys = Category.objects.filter(parent__isnull=True).all()
     return render(request,'blog/main.html',{'books':books,'categorys':categorys,'authors': authors})
 
@@ -14,11 +14,13 @@ def book(request):
     book_id = request.GET.get('book_id')
     book = Book.objects.get(id=book_id)
     id_author = book.id_author
-    author_simple_book = Book.objects.filter(id_author=id_author).all()
+    author_simple_book = Book.objects.filter(id_author=id_author).exclude(id=book_id).all()
+    id_category = book.category
+    category_simple_book = Book.objects.filter(category=id_category).exclude(id=book_id).all()
     #category = Category.objects.get(id=cat_id)
     #books = Book.objects.filter(category=cat_id).all()
     #return render(request,'blog/book.html',{'books':books,'category':category})
-    return render(request,'blog/book.html',{'book':book, 'author_simple_book':author_simple_book})
+    return render(request,'blog/book.html',{'book':book, 'author_simple_book':author_simple_book, 'category_simple_book':category_simple_book})
 
 def author(request):
     author_id = request.GET.get('author_id')
