@@ -2,13 +2,18 @@
 {% block title %}Все авторы{% endblock title%}
 {% block header %}Все авторы{% endblock header %}
 {% block content %}
-<div>
-    {% for author in authors %}
-    <p>
-        <a href="/author?author_id={{author.id}}">
-            {{author.title}}
-        </a>
-    </p>
-    {% endfor %}
+<div class="category_list mar_t_b">
+    <ul>
+        {% for author in authors %}
+        <li>
+            <a href="/author?author_id={{author.id}}">
+                {{author.title}}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
 </div>
+<p>
+    <a class="btn_green" href="/">Назад</a>
+</p>
 {% endblock content %}

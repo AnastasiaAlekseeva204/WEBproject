@@ -35,7 +35,7 @@ def category(request):
     return render(request,'blog/category.html',{'books':books,'category':category})
 
 def allcategory(request):
-    categorys = Category.objects.all()
+    categorys = Category.objects.all().order_by("?")
     return render(request,'blog/allcategory.html',{'categorys':categorys})
 
 def allauthor(request):
