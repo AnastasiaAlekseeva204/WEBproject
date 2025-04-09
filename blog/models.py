@@ -57,6 +57,7 @@ class Book(models.Model):
     data_pub = models.DateTimeField(default=timezone.now)
     enabled = models.BooleanField()
     reiting = models.PositiveSmallIntegerField(null=True)
+    count_view = models.IntegerField(null=True)
     def __str__(self):
         return str(self.id)+". "+self.title
 

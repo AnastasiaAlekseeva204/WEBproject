@@ -148,3 +148,6 @@ h1{
     margin-bottom: 25px;
     display: inline-block;
 }
+.category_list ul li{
+    margin-bottom: 12px;
+}

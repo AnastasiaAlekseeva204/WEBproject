@@ -13,6 +13,11 @@ def main(request):
 def book(request):
     book_id = request.GET.get('book_id')
     book = Book.objects.get(id=book_id)
+    if book.count_view:
+        book.count_view+=1
+    else:
+        book.count_view=1
+    book.save()
     id_author = book.id_author
     author_simple_book = Book.objects.filter(id_author=id_author).exclude(id=book_id).all()
     id_category = book.category
@@ -35,7 +40,7 @@ def category(request):
     return render(request,'blog/category.html',{'books':books,'category':category})
 
 def allcategory(request):
-    categorys = Category.objects.all().order_by("?")
+    categorys = Category.objects.all().order_by("title")
     return render(request,'blog/allcategory.html',{'categorys':categorys})
 
 def allauthor(request):
@@ -43,3 +48,9 @@ def allauthor(request):
     return  render(request,'blog/allauthor.html',{'authors':authors})
 '''def base(request):
     return render(request,'blog/base.html')'''
+def popularbook(request):
+    popularbook = Book.objects.filter(count_view__gt=5).all().order_by("-count_view")
+    return render(request,'blog/popularbook.html',{'popularbook':popularbook})
+def aboutus(request):
+    aboutus = Author.objects.all()
+    return render(request,'blog/aboutus.html',{'aboytus':aboutus})
