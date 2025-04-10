@@ -11,11 +11,18 @@
             <div class="main_menu">
                 <h1>{% block header %}{% endblock header %}</h1>
                 <div class="menu_list">
-                    <a class="btn_green" href="/">Главная</a>
-                    <a class="btn_green" href="/allcategory">Все категории</a>
-                    <a class="btn_green" href="/allauthor">Все авторы</a>
-                    <a class="btn_green" href="/popularbook">Популярные книги</a>
-                    <a class="btn_green" href="/aboutus">Инфо о нас</a>
+                    <div class="center_list">
+                        <a class="btn_green" href="/">Главная</a>
+                        <a class="btn_green" href="/allcategory">Все категории</a>
+                        <a class="btn_green" href="/allauthor">Все авторы</a>
+                        <a class="btn_green" href="/popularbook">Популярные книги</a>
+                    </div>
+                </div>
+                <div class="menu_list">
+                    <div class="center_list">
+                        <a class="btn_green" href="/search">Поиск</a>
+                        <a class="btn_green" href="/aboutus">Инфо о нас</a>
+                    </div>
                 </div>
             </div>
             <div class="content">{% block content %}{% endblock content %}</div>  

@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import Book
 from .models import Category
 from .models import Author
+from .forms import SearchForm
 # Create your views here.
 
 def main(request):
@@ -54,3 +55,6 @@ def popularbook(request):
 def aboutus(request):
     aboutus = Author.objects.all()
     return render(request,'blog/aboutus.html',{'aboytus':aboutus})
+def search(request):
+    searchform = SearchForm()
+    return render(request,'blog/forms.html',{'searchform': searchform})

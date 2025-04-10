@@ -9,6 +9,7 @@ urlpatterns = [
     path('allcategory',views.allcategory,name='allcategory'),
     path('allauthor',views.allauthor,name='allauthor'),
     path('popularbook',views.popularbook,name='popularbook'),
-    path('aboutus',views.aboutus,name='aboutus')
+    path('aboutus',views.aboutus,name='aboutus'),
+    path('search',views.search,name='search')
     #path('base',views.base,name='base')
 ]

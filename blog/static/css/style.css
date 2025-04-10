@@ -58,6 +58,14 @@ a:hover{
 .main_menu h1{
     color: white;
 }
+.main_menu .menu_list .btn_green{
+    float: left;
+}
+.main_menu .menu_list .center_list{
+    display: inline-flex;
+    text-align: center;
+    margin: 0 auto;
+}
 h1{
     text-align: center;
     font-size: 64px;
@@ -72,6 +80,7 @@ h1{
     color: white;
     text-decoration: none;
     margin: 0px 10px;
+    width: 155px;
 
 }
 .btn_green:first-child{

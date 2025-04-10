@@ -1,0 +1,13 @@
+{% extends "blog/base.html" %}
+{% block header %}Поиск{% endblock header %}
+{% block title %}Поиск{% endblock title %}
+{% block content %}
+    <div class="search_content">
+        <form method="post">
+            <table>
+                {{searchform}}
+            </table>
+            <input type="submit" value="Поиск" class="btn_green">
+        </form>
+    </div>
+{% endblock %}
