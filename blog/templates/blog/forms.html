@@ -1,13 +1,36 @@
 {% extends "blog/base.html" %}
+{% load static %}
 {% block header %}Поиск{% endblock header %}
 {% block title %}Поиск{% endblock title %}
 {% block content %}
     <div class="search_content">
-        <form method="post">
-            <table>
+        <form method="get">
                 {{searchform}}
-            </table>
             <input type="submit" value="Поиск" class="btn_green">
         </form>
+        {% if "query" in request.GET %}
+            <div class="results_content book_list item_block simple_list">
+                <h2>Результаты поиска </h2>
+                {% for result in results %}
+                    <div class="item">
+                        <div class="item_img">
+                            {% if result.image %}
+                                <img src="{% static result.image %}" height="200px" >
+                            {% else %}
+                                <img src="{% static 'img/empty_img.jpg' %}" height="200px">
+                            {% endif %}
+                        </div>
+                        <div class="item_text">
+                            <a href="/book?book_id={{result.id}}">
+                                {{result.title}}
+                            </a>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <p>Ничего не удалось найти</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+        
     </div>
 {% endblock %}

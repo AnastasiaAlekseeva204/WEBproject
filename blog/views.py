@@ -3,6 +3,7 @@ from .models import Book
 from .models import Category
 from .models import Author
 from .forms import SearchForm
+from django.db.models import Q
 # Create your views here.
 
 def main(request):
@@ -57,4 +58,10 @@ def aboutus(request):
     return render(request,'blog/aboutus.html',{'aboytus':aboutus})
 def search(request):
     searchform = SearchForm()
-    return render(request,'blog/forms.html',{'searchform': searchform})
+    results = ""
+    if "query" in request.GET:
+        searchform = SearchForm(request.GET)
+        if searchform.is_valid():
+            cd = searchform.cleaned_data
+            results = Book.objects.filter(Q(title__iregex=cd['query'] ) | Q(content__iregex=cd['query']) | Q(id_author__title__iregex=cd['query'])).all()
+    return render(request,'blog/forms.html',{'searchform': searchform, 'results': results})
