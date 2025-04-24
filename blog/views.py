@@ -4,6 +4,7 @@ from .models import Category
 from .models import Author
 from .forms import SearchForm
 from django.db.models import Q
+from .models import New
 # Create your views here.
 
 def main(request):
@@ -65,3 +66,10 @@ def search(request):
             cd = searchform.cleaned_data
             results = Book.objects.filter(Q(title__iregex=cd['query'] ) | Q(content__iregex=cd['query']) | Q(id_author__title__iregex=cd['query'])).all()
     return render(request,'blog/forms.html',{'searchform': searchform, 'results': results})
+def allnews(request):
+    news = New.objects.filter(enabled=1).all().order_by("cur_date")
+    return render(request,'blog/allnews.html',{'news': news})
+def new(request):
+    new_id = request.GET.get('new_id')
+    new= New.objects.get(id=new_id)
+    return render(request,'blog/new.html',{'new':new})

@@ -6,6 +6,7 @@ from .models import Rubric
 from mptt.admin import MPTTModelAdmin
 from mptt.admin import DraggableMPTTAdmin
 from .models import Category
+from .models import New
 
 admin.site.register(
     Category,
@@ -33,4 +34,5 @@ admin.site.register(
 admin.site.register(Post)
 admin.site.register(Book)
 admin.site.register(Author)
+admin.site.register(New)
 #admin.site.register(Rubric,MPTTModelAdmin)

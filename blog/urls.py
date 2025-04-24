@@ -10,6 +10,8 @@ urlpatterns = [
     path('allauthor',views.allauthor,name='allauthor'),
     path('popularbook',views.popularbook,name='popularbook'),
     path('aboutus',views.aboutus,name='aboutus'),
-    path('search',views.search,name='search')
+    path('search',views.search,name='search'),
+    path('allnews',views.allnews,name='allnews'),
+    path('new',views.new,name='new')
     #path('base',views.base,name='base')
 ]

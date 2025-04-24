@@ -22,3 +22,11 @@ id_book
 if_category
 
 table id_author
+
+table news
+id
+name
+mini_content
+content
+cur_date
+enabled

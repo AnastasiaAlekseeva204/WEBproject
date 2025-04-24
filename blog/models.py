@@ -61,5 +61,15 @@ class Book(models.Model):
     def __str__(self):
         return str(self.id)+". "+self.title
 
-
+class New(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='images/news',null=True,blank=True)
+    mini_content = models.TextField(null=True)
+    content = models.TextField(null=True)
+    cur_date = models.DateTimeField(default=timezone.now)
+    enabled = models.BooleanField()
+    def __str__(self):
+        return str(self.id)+". "+self.name
+    
     

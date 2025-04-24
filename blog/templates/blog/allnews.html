@@ -1,0 +1,26 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block title %}Все новости{% endblock title %}
+{% block header %}Все новости{% endblock header %}
+{% block content %}
+    <div class="news_list">
+        {% for new in news %}
+            <div class="news_item">
+                <div class="news_img">
+                    {% if new.image %}
+                        <img src="{% static new.image %}" height="200px">
+                    {% else %}
+                        <img src="{% static 'img/empty_img.jpg' %}" height="200px">
+                    {% endif %}
+                </div>
+                <div>
+                    {{new.cur_date |date:'d.m.Y'}}
+                </div>
+                <div class="news_text">
+                   <h3> <a href="/new?new_id={{new.id}}">{{new.name}}</a></h3>
+                   {{new.mini_content}}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}
