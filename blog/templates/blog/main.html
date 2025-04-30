@@ -3,6 +3,27 @@
 {% block title %}Моя библиотека{% endblock title %}
 {% block header %}Моя библиотека{% endblock header %}
 {% block content %}
+    <h2>Популярные книги</h2>
+    <div class="book_background">
+        <div class="book_list item_block">
+            {% for book in popularbook %}
+            <div class="item">
+                <div class="item_img">
+                    {% if book.image %}
+                        <img src="{% static book.image %}" height="200px">
+                    {% else %}
+                        <img src="{% static 'img/empty_img.jpg' %}" height="200px">
+                    {% endif %}
+                </div>
+                <div class="item_text">
+                    <a href="/book?book_id={{book.id}}">
+                        {{book.title}}
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
     <h2>Категории</h2>
     <div class="category_list">
         <ul>

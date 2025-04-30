@@ -12,7 +12,8 @@ def main(request):
     authors = Author.objects.all().order_by("?")[:4]
     categorys = Category.objects.filter(parent__isnull=True).all()
     news= New.objects.all().order_by("-cur_date")[:2]
-    return render(request,'blog/main.html',{'books':books,'categorys':categorys,'authors': authors,'news':news})
+    popularbook = Book.objects.filter(count_view__gt=5).all().order_by("-count_view")[:4]
+    return render(request,'blog/main.html',{'books':books,'categorys':categorys,'authors': authors,'news':news,'popularbook':popularbook})
 
 def book(request):
     book_id = request.GET.get('book_id')

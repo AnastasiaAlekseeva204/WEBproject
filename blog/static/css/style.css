@@ -233,3 +233,10 @@ h1{
     text-align: center;
     padding-bottom: 10px;
 }
+.book_background{
+    background:#bbc563 ;
+    border-radius: 6px;
+    padding-top: 10px;
+    padding-left:15px;
+    padding-bottom: 5px;
+}
