@@ -11,7 +11,8 @@ def main(request):
     books= Book.objects.all()
     authors = Author.objects.all().order_by("?")[:4]
     categorys = Category.objects.filter(parent__isnull=True).all()
-    return render(request,'blog/main.html',{'books':books,'categorys':categorys,'authors': authors})
+    news= New.objects.all().order_by("-cur_date")[:2]
+    return render(request,'blog/main.html',{'books':books,'categorys':categorys,'authors': authors,'news':news})
 
 def book(request):
     book_id = request.GET.get('book_id')
@@ -51,12 +52,15 @@ def allauthor(request):
     return  render(request,'blog/allauthor.html',{'authors':authors})
 '''def base(request):
     return render(request,'blog/base.html')'''
+
 def popularbook(request):
     popularbook = Book.objects.filter(count_view__gt=5).all().order_by("-count_view")
     return render(request,'blog/popularbook.html',{'popularbook':popularbook})
+
 def aboutus(request):
     aboutus = Author.objects.all()
     return render(request,'blog/aboutus.html',{'aboytus':aboutus})
+
 def search(request):
     searchform = SearchForm()
     results = ""
@@ -66,9 +70,11 @@ def search(request):
             cd = searchform.cleaned_data
             results = Book.objects.filter(Q(title__iregex=cd['query'] ) | Q(content__iregex=cd['query']) | Q(id_author__title__iregex=cd['query'])).all()
     return render(request,'blog/forms.html',{'searchform': searchform, 'results': results})
+
 def allnews(request):
-    news = New.objects.filter(enabled=1).all().order_by("cur_date")
+    news = New.objects.filter(enabled=1).all().order_by("-cur_date")
     return render(request,'blog/allnews.html',{'news': news})
+
 def new(request):
     new_id = request.GET.get('new_id')
     new= New.objects.get(id=new_id)

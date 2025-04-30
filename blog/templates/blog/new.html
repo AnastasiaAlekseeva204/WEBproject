@@ -5,18 +5,18 @@
 {% block content %}
     <div class="news_one">
         <h3>{{new.name}}</h3>
-        <div class="new_img">
+        <div class="news_one_img">
             {% if new.image %}
                 <img src="{% static new.image %}" height="200px">
                 {% else %}
                 <img src="{% static 'img/empty_img.jpg' %}" height="200px">
             {% endif %}
         </div>
-        <div class="new_text">
-            <p>{{new.content}}</p>
+        <div class="news_one_date">
+            <p><b>Дата публикации: </b>{{new.cur_date |date:'d.m.Y'}}</p>
         </div>
-        <div class="new_data">
-            <p><b>Дата публикации: </b>{{new.cur_date}}</p>
+        <div class="news_one_text">
+            <p>{{new.content}}</p>
         </div>
     </div>
 {% endblock content %}
