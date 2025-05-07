@@ -13,7 +13,8 @@ def main(request):
     categorys = Category.objects.filter(parent__isnull=True).all()
     news= New.objects.all().order_by("-cur_date")[:2]
     popularbook = Book.objects.filter(count_view__gt=5).all().order_by("-count_view")[:4]
-    return render(request,'blog/main.html',{'books':books,'categorys':categorys,'authors': authors,'news':news,'popularbook':popularbook})
+    newbooks=Book.objects.filter(isnew=True).order_by("-id")[:4]
+    return render(request,'blog/main.html',{'books':books,'categorys':categorys,'authors': authors,'news':news,'popularbook':popularbook,'newbooks':newbooks})
 
 def book(request):
     book_id = request.GET.get('book_id')
@@ -49,7 +50,7 @@ def allcategory(request):
     return render(request,'blog/allcategory.html',{'categorys':categorys})
 
 def allauthor(request):
-    authors = Author.objects.all()
+    authors = Author.objects.order_by('title').all()
     return  render(request,'blog/allauthor.html',{'authors':authors})
 '''def base(request):
     return render(request,'blog/base.html')'''
@@ -80,3 +81,7 @@ def new(request):
     new_id = request.GET.get('new_id')
     new= New.objects.get(id=new_id)
     return render(request,'blog/new.html',{'new':new})
+
+def newbook(request):
+    books = Book.objects.filter(enabled=1,isnew=1).all()
+    return render(request,'blog/newbook.html',{'books':books})

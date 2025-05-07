@@ -17,11 +17,16 @@
                 </div>
                 <div class="item_text">
                     <a href="/book?book_id={{book.id}}">
-                        {{book.title}}
+                        {{book.title|truncatechars:20}}
                     </a>
                 </div>
             </div>
             {% endfor %}
+        </div>
+        <div>
+            <p class="text_center">
+                <a class="btn_purple" href="/popularbook">Больше популярных книг</a>
+            </p>
         </div>
     </div>
     <h2>Категории</h2>
@@ -40,23 +45,30 @@
         </ul>
     </div>
     <h2>Авторы</h2>
-    <div class="author_list item_block">
-        {% for author in authors %}
-        <div class="item">
-            <div class="item_img">
-                {% if author.image %}
-                    <img src="{% static author.image %}" height="200px">
-                {% else %}
-                    <img src="{% static 'img/empty_img.jpg' %}" height="200px">
-                {% endif %}
+    <div class="author_list">
+        <div class="item_block">
+            {% for author in authors %}
+            <div class="item">
+                <div class="item_img">
+                    {% if author.image %}
+                        <img src="{% static author.image %}" height="200px">
+                    {% else %}
+                        <img src="{% static 'img/empty_img.jpg' %}" height="200px">
+                    {% endif %}
+                </div>
+                <div class="item_text">
+                <a href="/author?author_id={{author.id}}">
+                    {{author.title}}
+                    </a> 
+                </div>
             </div>
-            <div class="item_text">
-               <a href="/author?author_id={{author.id}}">
-                {{author.title}}
-                </a> 
-            </div>
+            {% endfor %}
         </div>
-        {% endfor %}
+        <div>
+            <p class="text_center">
+                <a class="btn_purple" href="/allauthor">Больше авторов</a>
+            </p>
+        </div>
     </div>
     <h2>Последние новости</h2>
     <div class="news_background">
@@ -83,5 +95,31 @@
         <p class="text_center">
             <a class="btn_green" href="/allnews">Больше новостей</a>
         </p>
+    </div>
+    <h2>Новинки</h2>
+    <div class="book_background">
+        <div class="book_list item_block">
+            {% for book in newbooks %}
+            <div class="item">
+                <div class="item_img">
+                    {% if book.image %}
+                        <img src="{% static book.image %}" height="200px"> 
+                    {% else %}
+                        <img src="{% static 'img/empty_img.jpg' %} " height="200px">
+                    {% endif %}
+                </div>
+                <div class="item_text">
+                    <a href="/book?book_id={{book.id}}">
+                        {{book.title|truncatechars:20}}
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div>
+            <p class="text_center">
+                <a class="btn_purple" href="/newbook">Больше новинок</a>
+            </p>
+        </div>
     </div>
 {% endblock content %}

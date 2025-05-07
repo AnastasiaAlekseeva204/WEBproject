@@ -58,6 +58,7 @@ class Book(models.Model):
     enabled = models.BooleanField()
     reiting = models.PositiveSmallIntegerField(null=True)
     count_view = models.IntegerField(null=True)
+    isnew = models.BooleanField(null=True)
     def __str__(self):
         return str(self.id)+". "+self.title
 
@@ -71,5 +72,6 @@ class New(models.Model):
     enabled = models.BooleanField()
     def __str__(self):
         return str(self.id)+". "+self.name
+
     
     
