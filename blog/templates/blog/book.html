@@ -36,7 +36,7 @@
                 </div>
                 <div class="item_text">
                     <a href="/book?book_id={{book.id}}">
-                        {{book.title}}
+                        {{book.title|truncatechars:20}}
                     </a>
                 </div> 
             </div>
@@ -61,7 +61,7 @@
                 </div>
                 <div class="item_text">
                     <a href="/book?book_id={{book.id}}">
-                        {{book.title}}
+                        {{book.title|truncatechars:20}}
                     </a>
                 </div>
             </div>

@@ -171,6 +171,9 @@ h1{
     margin-bottom: 12px;
     margin-right: 20px;
 }
+.category_list ul.main_list{
+    column-count: 1;
+}
 .search_content{
     margin-top: 20px;
     margin-bottom: 20px;
