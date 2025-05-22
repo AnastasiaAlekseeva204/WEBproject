@@ -4,6 +4,11 @@
 {% block header %}Категория: {{category.title}}{% endblock header %}
 {% block content %}
     <div class="book_list item_block">
+        <div class="sort_button">
+            <a class="btn_green" href="/category?cat_id={{category.id}}&sort=desc">Дороже</a>
+            <a class="btn_green" href="/category?cat_id={{category.id}}&sort=asc">Дешевле</a>
+            <a class="btn_green" href="/category?cat_id={{category.id}}">Сбросить</a>
+        </div>
         {% for book in books %}
         <div class="item">
             <div class="item_img">
@@ -14,8 +19,11 @@
                 {% endif %}
             </div>
             <div class="item_text">
+                <div class="book_price">
+                    {{book.price}}₽
+                </div>
                 <a href="/book?book_id={{book.id}}">
-                    {{book.title}}
+                    {{book.title|truncatechars:20}}
                 </a>   
             </div>
         </div>

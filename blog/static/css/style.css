@@ -264,3 +264,14 @@ h1{
     margin: 0px 10px;
     width: 155px;
 }
+.book_price{
+    font-size: 24px;
+    color: #aa4081;
+    font-weight: bold;
+}
+.sort_button{
+    display: block;
+    height: 30px;
+    padding: 10px;
+    padding-top: 20px;
+}

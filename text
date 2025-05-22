@@ -10,9 +10,15 @@ Nastya
 1360nastya@mail.ru
 12345
 -----
-Чтобы пояивлась база данных, нужно обновить файлик (db.sqlite3) спрашивать у тимлида
+Чтобы появилась база данных, нужно обновить файлик (db.sqlite3) спрашивать у тимлида
 Данные пользователя:
 Nastya
+1360nastya@mail.ru
+12345
+
+pythonAnywhere
+db:
+username: Anastasia
 1360nastya@mail.ru
 12345
 

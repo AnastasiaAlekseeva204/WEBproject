@@ -16,6 +16,9 @@
                     {% endif %}
                 </div>
                 <div class="item_text">
+                    <div class="book_price">
+                        {{book.price}}₽
+                    </div>
                     <a href="/book?book_id={{book.id}}">
                         {{book.title|truncatechars:20}}
                     </a>
@@ -109,6 +112,9 @@
                     {% endif %}
                 </div>
                 <div class="item_text">
+                    <div class="book_price">
+                        {{book.price}}₽
+                    </div>
                     <a href="/book?book_id={{book.id}}">
                         {{book.title|truncatechars:20}}
                     </a>

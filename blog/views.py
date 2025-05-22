@@ -40,9 +40,17 @@ def author(request):
     return render(request,'blog/author.html',{'books':books,'author':author})
 
 def category(request):
+    str_sort = ""
     cat_id = request.GET.get('cat_id')
     category = Category.objects.get(id=cat_id)
     books = Book.objects.filter(category=cat_id).all()
+    if request.GET.get('sort'):
+        if request.GET.get('sort') == 'asc':
+            str_sort = ".order_by('price')."
+            books = Book.objects.filter(category=cat_id).order_by('price').all()
+        elif request.GET.get('sort'):
+            if request.GET.get('sort') =='desc':
+                books = Book.objects.filter(category=cat_id).order_by('-price').all()
     return render(request,'blog/category.html',{'books':books,'category':category})
 
 def allcategory(request):
